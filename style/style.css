@@ -5,16 +5,50 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* html,
+body {
+    overflow-x: hidden;
+} */
+body{
+    background-color: var(--main-bg);
+    transition: .3s;
+}
 :root{
-    --color: #0E8784;
+    --primary-color: #0E8784;
+    --main-bg: #FEFCF7;
+    --main-text: #333D4B;
+    --secondary-text: #83888F;
+    --card-bg: #F4F1EB;
+    --dark-bg: #333D4B;
+    --dark-bg-2: #2C343E;
+    --light-color: #FDD6BA;
+    --white-color: #FFFFFF;
+    --color: #DDD;
     --font:"Barlow", sans-serif;
     --font-2:"Fraunces", serif;
 }
+.dark-mode{
+    --main-bg: #121212;
+    --main-text:#E6E6E6;
+    --secondary-text:#A8A8A8;
+    --card-bg:#242424;
+    --dark-bg:#202A2F;
+    --dark-bg-2:#161D22;
+    --primary-color:#2FB5A9;
+    --light-color:#E5B99A;
+    --color:#444;
+}
+
 header{
     padding: 40px 85px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: .3s;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--main-bg);
 }
 header nav{
     display: flex;
@@ -23,17 +57,22 @@ header nav{
 header nav a{
     text-decoration: none;
     font-family: var(--font);
-    color: #83888F;
+    color: var(--secondary-text);
     font-size: 12px;
     font-weight: 700;
     line-height: 130%;
     letter-spacing: .92px;
     text-transform: uppercase;
-
+    transition: .3s;
 }
 header svg{
     display: none;
+    color: var(--main-text);
 }
+nav a:hover{
+    color: var(--main-text);
+}
+
 /* end header */
 @media (max-width: 992px){
     header {
@@ -49,6 +88,9 @@ header svg{
     header nav{
         display: none;
         color: #333D4B;
+    }
+    #darkBtn{
+        display: none;
     }
     header svg{
         display: block;
@@ -84,7 +126,7 @@ header svg{
 }
 .section-1 div h2{
     font-family: var(--font-2);
-    color: #FEFCF7;
+    color: var(--white-color);
     font-size: 72px;
     font-weight: 900;
     line-height: 100%;
@@ -93,7 +135,7 @@ header svg{
 }
 .section-1 div P{
     font-family: var(--font);
-    color: #FEFCF7;
+    color:  var(--white-color);
     font-size: 16px;
     font-weight: 400;
     line-height: 160%;
@@ -103,8 +145,8 @@ header svg{
     width: 218px;
     height: 57px;
     font-family: var(--font-2);
-    background-color: var(--color);
-    color: #FEFCF7;
+    background-color: var(--primary-color);
+    color: var(--white-color);
     font-size: 18px;
     font-weight: 900;
     line-height: 140%;
@@ -115,9 +157,9 @@ header svg{
 
 }
 .section-1 div button:hover{
-    background-color:#FEFCF7 ;
-    color: var(--color);
-    border: 1.5px solid var(--color);
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border: 1.5px solid var(--primary-color);
 }
 /* end section-1  */
 
@@ -222,7 +264,7 @@ header svg{
 
     z-index: 1;
 
-    color: #83888F;
+    color: var(--secondary-text);
     opacity: 0.3;
 
     white-space: nowrap;
@@ -244,7 +286,7 @@ header svg{
 }
 .product h3 {
     font-family: var(--font-2);
-    color: #333D4B;
+    color: var(--main-text);
     font-size: 24px;
     font-weight: 900;
     line-height: 150%;
@@ -253,7 +295,7 @@ header svg{
 }
 .product p {
     font-family: var(--font);
-    color: #333D4B;
+    color: var(--main-text);
     font-size: 16px;
     font-weight: 400;
     line-height: 160%;
@@ -361,7 +403,7 @@ header svg{
 
 .section-3 {
     
-    background-color: #333D4B;
+    background-color: var(--dark-bg);
     margin: 0 80px;
     height: 577px;
     border-radius: 10px;
@@ -382,7 +424,7 @@ header svg{
     font-weight: 900;
     font-size: 40px;
     line-height: 120%;
-    color: #FEFCF7;
+    color: var(--white-color);
 }
 .p-section-3 {
     text-align: center;
@@ -391,11 +433,11 @@ header svg{
     font-weight: 400;
     font-size: 16px;
     line-height: 160%;
-    color: #FEFCF7;
+    color: var(--white-color);
 }
 .card{
     width: calc((100% - 2 * 32px) / 3);
-    background-color: var(--color);
+    background-color: var(--primary-color);
     height: 354px;
     text-align: center;
     border-radius: 10px;
@@ -409,7 +451,7 @@ header svg{
 }
 .card h3 {
     margin-bottom: 24px;
-    color: #FEFCF7;
+    color: var(--white-color);
     font-family: var(--font-2);
     font-weight: 900;
     font-size: 24px;
@@ -418,7 +460,7 @@ header svg{
 }
 .card p {
     
-    color: #FEFCF7;
+    color: var(--white-color);
     font-family: var(--font);
     font-weight: 400;
     font-size: 16px;
@@ -499,7 +541,7 @@ header svg{
     font-weight: 900;
     font-size: 24px;
     line-height: 150%;
-    color: #83888F;
+    color:  var(--secondary-text);
 }
 .parent-1{
     margin: 80px 0;
@@ -509,13 +551,13 @@ header svg{
 .parent-1 .div-1{
     width: 31px;
     height: 31px;
-    border: 2px solid #0E8784 ;
+    border: 2px solid var(--primary-color) ;
     border-radius: 50%;
 }
 .parent-1 .div-2{
     width: 350px;
     height: 2px;
-    border: 2px solid #FDD6BA;
+    border: 2px solid var(--light-color);
     border-radius: 2px;
 }
 .section-4 .parent-2{
@@ -533,7 +575,7 @@ header svg{
     font-weight: 900;
     font-size: 72px;
     line-height: 100%;
-    color: #FDD6BA;
+    color: var(--light-color);
     margin-bottom: 40px;
 } 
 .section-4 .parent-2 h3 {
@@ -541,7 +583,7 @@ header svg{
     font-weight: 900;
     font-size: 32px;
     line-height: 114%;
-    color: #333D4B;
+    color: var(--main-text);
     margin-bottom: 40px;
 } 
 .section-4 .parent-2 p {
@@ -549,16 +591,16 @@ header svg{
     font-weight: 400;
     font-size: 16px;
     line-height: 160%;
-    color: #333D4B;
+    color: var(--main-text);
     
 } 
 .section-4 button {
     width: 218px;
     height: 57px;
-    background-color: #0E8784;
+    background-color: var(--primary-color);
     border: none;
     border-radius: 6px;
-    color: #FEFCF7;
+    color: var(--white-color);
     font-family: var(--font-2);
     font-weight: 900;
     font-size: 18;
@@ -568,9 +610,9 @@ header svg{
 /* end section-4  */
 .section-4 button:hover {
     
-    background-color: #FEFCF7;
-    border: 1px solid #0E8784;
-    color: #0E8784;
+    background-color: var(--white-color);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
     cursor: pointer;
     
 
@@ -638,7 +680,8 @@ header svg{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #333D4B;
+    background-color: var(--dark-bg);
+    transition: .3s;
     
 }
 .section-5 nav {
@@ -652,7 +695,7 @@ header svg{
     font-size: 12px;
     font-weight: 700;
     line-height: 130%;
-    color: #83888F;
+    color: var(--secondary-text);
     text-transform: uppercase;
     text-decoration: none;
 }
@@ -664,8 +707,11 @@ header svg{
 .section-5 svg {
     width: 24px;
     height: 24px;
-    color: #FEFCF7;
+    color: var(--white-color);
    
+}
+.section-5 nav a:hover{
+    color: var(--white-color);
 }
 /* end section-5  */
 @media (max-width: 992px){
@@ -696,13 +742,17 @@ header svg{
 /* start page about  */
 
 .section-6{
+    
     width: 100%;
     padding: 0 85px;
     position: relative;
+    
+    
 }
 .section-6 img{
     width: 100%;
     border-radius: 10px;
+    
 }
 .section-6 div{
     position: absolute;
@@ -718,7 +768,7 @@ header svg{
 }
 .section-6 div h2{
     font-family: var(--font-2);
-    color: #FEFCF7;
+    color: var(--white-color);
     font-size: 40px;
     font-weight: 900;
     line-height: 120%;
@@ -727,7 +777,7 @@ header svg{
 }
 .section-6 div P{
     font-family: var(--font);
-    color: #FEFCF7;
+    color: var(--white-color);
     font-size: 16px;
     font-weight: 400;
     line-height: 160%;
@@ -848,14 +898,14 @@ header svg{
 }
 .section-7 h2 {
     margin-bottom: 32px;
-    color: #333D4B;
+    color: var(--main-text);
     font-family: var(--font-2);
     font-weight: 900;
     font-size: 40px;
     line-height: 120%;
 }
 .section-7 p{
-    color: #333D4B;
+    color: var(--main-text);
     font-family: var(--font);
     font-weight: 400;
     font-size: 16px;
@@ -926,7 +976,7 @@ header svg{
 }
 .div-3 {
     height: 434px;
-    background-color: #2C343E;
+    background-color: var(--dark-bg-2);
     margin: 0 80px;
     padding: 112px 80px;
     border-radius: 10px;
@@ -939,7 +989,7 @@ header svg{
     font-size: 40px;
     font-weight: 900;
     line-height: 120%;
-    color: #FEFCF7;
+    color:  var(--white-color);
     margin-bottom: 32px;
 }
 .section-8 p {
@@ -947,7 +997,7 @@ header svg{
     font-size: 16px;
     font-weight: 400;
     line-height: 160%;
-    color: #FEFCF7;
+    color:  var(--white-color);
     
 }
 .section-8 img {
@@ -1030,7 +1080,7 @@ header svg{
     font-weight: 900;
     font-size: 24px;
     line-height: 150%;
-    color: #83888F;
+    color: var(--secondary-text);
     margin-bottom: 64px;
 }
 .section-9 h1{
@@ -1040,7 +1090,7 @@ header svg{
     font-weight: 900;
     font-size: 32px;
     line-height: 114%;
-    color: #333D4B;
+    color: var(--main-text);
     white-space: nowrap;
 }
 .section-9 h3{
@@ -1048,7 +1098,7 @@ header svg{
     font-weight: 400;
     font-size: 16px;
     line-height: 160%;
-    color: #333D4B;
+    color: var(--main-text);
 }
 .div-4{
     display: flex;
@@ -1099,7 +1149,7 @@ header svg{
         font-weight: 900;
         font-size: 32px;
         line-height: 114%;
-        color: #333D4B;
+        color: var(--dark-bg);
         white-space: nowrap;
     }
     
@@ -1130,7 +1180,7 @@ header svg{
 }
 .section-10 div h2{
     font-family: var(--font-2);
-    color: #FEFCF7;
+    color: var(--white-color);
     font-size: 72px;
     font-weight: 900;
     line-height: 100%;
@@ -1139,7 +1189,7 @@ header svg{
 }
 .section-10 div P{
     font-family: var(--font);
-    color: #FEFCF7;
+    color: var(--white-color);
     font-size: 16px;
     font-weight: 400;
     line-height: 160%;
@@ -1231,7 +1281,7 @@ header svg{
 .section-11{
     margin: 140px 80px;
     height: 90vh;
-    background-color: #333D4B;
+    background-color: var(--dark-bg);
     
 }
 .parent-3{
@@ -1245,13 +1295,13 @@ header svg{
 .parent-3 .div-5{
     width: 31px;
     height: 31px;
-    border: 2px solid #0E8784 ;
+    border: 2px solid var(--primary-color) ;
     border-radius: 50%;
 }
 .parent-3 .div-6{
     width: 760px;
     height: 2px;
-    border: 2px solid #FDD6BA;
+    border: 2px solid var(--light-color);
     border-radius: 2px;
     position: absolute;
     margin-left: 15px;
@@ -1272,7 +1322,7 @@ header svg{
     font-weight: 900;
     font-size: 72px;
     line-height: 100%;
-    color: #FDD6BA;
+    color: var(--light-color);
     margin-bottom: 40px;
 } 
 .section-11 .parent-4 h3 {
@@ -1280,7 +1330,7 @@ header svg{
     font-weight: 900;
     font-size: 32px;
     line-height: 114%;
-    color: #FEFCF7;
+    color: var(--white-color);
     margin-bottom: 40px;
 } 
 .section-11 .parent-4 p {
@@ -1288,14 +1338,14 @@ header svg{
     font-weight: 400;
     font-size: 16px;
     line-height: 160%;
-    color: #FEFCF7;  
+    color: var(--white-color);  
 } 
 /* end section-11 */
 @media (max-width: 992px){
     .section-11{
         margin: 80px 32px;
         height: 90vh;
-        background-color: #333D4B;
+        background-color: var(--dark-bg);
     }
     .parent-3{
         padding-top: 64px;
@@ -1376,14 +1426,14 @@ header svg{
     font-weight: 900;
     font-size: 24px;
     line-height: 150%;
-    color: #0E8784;
+    color: var(--primary-color);
 }
 .div-7-active h2{
     font-family: var(--font-2);
     font-weight: 900;
     font-size: 24px;
     line-height: 150%;
-    color: #333D4B;
+    color: var(--main-text);
 }
 .div-7{
     width: 251px;
@@ -1399,14 +1449,14 @@ header svg{
     font-weight: 900;
     font-size: 24px;
     line-height: 150%;
-    color: #83888F;
+    color: var(--secondary-text);
 }
 .div-7 h2{
     font-family: var(--font-2);
     font-weight: 900;
     font-size: 24px;
     line-height: 150%;
-    color: #83888F;
+    color: var(--secondary-text);
 }
 .div-8{
     display: flex;
@@ -1419,11 +1469,11 @@ header svg{
     font-weight: 900;
     font-size: 40px;
     line-height: 120%;
-    color: #83888F;
+    color: var(--secondary-text);
     width: 712px;
 }
 .div-8 svg{
-    color: var(--color);
+    color: var(--primary-color);
 }
 .div-9{
     margin-bottom: 80px;
@@ -1432,52 +1482,11 @@ header svg{
     gap: 23px;
 
 }
-.one{
-    animation: fromLeft 1s;
-}
-
-.two{
-    animation: fromRight 1s;
-}
-
-.three{
-    animation: fromLeft 1s;
-}
-
-.div-9-four{
-    animation: fromRight 1s;
-}
-
-.div-9-five{
-    animation: fromLeft 1s;
-}
-
-@keyframes fromLeft{
-    from{
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    to{
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fromRight{
-    from{
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    to{
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
 
 .div-9 div{
     width: calc((100% - 2 * 23px) / 3);
     height: 202px;
-    background-color: #F4F1EB;
+    background-color:  var(--card-bg);
     padding: 32px 24px;
     border-radius: 8px;
 }
@@ -1486,7 +1495,7 @@ header svg{
     font-weight: 900;
     font-size: 24px;
     line-height: 150%;
-    color: #333D4B;
+    color: var(--main-text);
     margin-bottom: 24px;
 }
 .div-9 div p{
@@ -1494,34 +1503,34 @@ header svg{
     font-weight: 400;
     font-size: 16px;
     line-height: 160%;
-    color: #333D4B;
+    color: var(--main-text);
 }
 .div-9:not(.div-9-four):not(.div-9-five) > div:nth-child(2):hover{
-    background-color: var(--color);
+    background-color: var(--primary-color);
 }
 .div-9:not(.div-9-four):not(.div-9-five) > div:nth-child(2):hover h2,
 .div-9:not(.div-9-four):not(.div-9-five) > div:nth-child(2):hover p{
-    color: #FEFCF7;
+    color: var(--main-bg);
 }
 .div-9-four > div:nth-child(3):hover{
-    background-color: var(--color);
+    background-color: var(--primary-color);
 }
 .div-9-four > div:nth-child(3):hover h2,
 .div-9-four > div:nth-child(3):hover p{
-    color: #FEFCF7;
+    color:  var(--main-bg);
 }
 .div-9-five > div:nth-child(1):hover{
-    background-color: var(--color);
+    background-color: var(--primary-color);
 }
 .div-9-five > div:nth-child(1):hover h2,
 .div-9-five > div:nth-child(1):hover p{
-    color: #FEFCF7;
+    color:  var(--main-bg);
 }
 .div-10{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--color);
+    color: var(--primary-color);
 }
 .div-10 svg{
     margin-bottom: 30px;
@@ -1536,7 +1545,7 @@ header svg{
     width: 712px;
 }
 .div-11 {
-    background-color: #2C343E;
+    background-color: var(--dark-bg-2);
     height: 202px;
     margin-bottom: 48px;
     border-radius: 8px;
@@ -1562,26 +1571,26 @@ header svg{
     text-transform: uppercase;
 }
 .div-11 span {
-    color: var(--color);
+    color: var(--primary-color);
 }
 .parent-5 button {
     width: 218px;
     height: 57px;
     display: block;
     margin-left: auto;
-    background-color: var(--color);
+    background-color: var(--primary-color);
     border: none;
     border-radius: 6px;
     font-family: var(--font-2);
     font-weight: 900;
     font-size: 18px;
     line-height: 140%;
-    color: #FFFFFF;
+    color: var(--white-color);
 }
 .parent-5 button:hover{
-    background-color: #FFFFFF;
-    color: var(--color);
-    border: 1px solid var(--color);
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
 }
 /* end section-12 */
 @media(max-width: 992px){
@@ -1626,9 +1635,209 @@ header svg{
     .div-9 div{
         width: 100%;
         height: 202px;
-        background-color: #F4F1EB;
+        background-color: var(--card-bg);
         padding: 32px 24px;
         border-radius: 8px;
     }
 }
 /* end responsife section-12 */
+
+ /* Start Contact Page  */
+
+.contact{
+    padding: 140px 165px;
+}
+
+.contact h2{
+    font-family: var(--font-2);
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--main-text);
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.contact > p{
+    font-family: var(--font);
+    font-size: 16px;
+    color: var(--secondary-text);
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.contact-parent{
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+.info{
+    width: 35%;
+}
+
+.info h3{
+    font-family: var(--font-2);
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--main-text);
+    margin-bottom: 32px;
+}
+
+.info p{
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--main-text);
+    margin-bottom: 24px;
+}
+
+form{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+form input,
+form textarea{
+    width: 100%;
+    padding: 18px;
+    border: 1px solid var(--color);
+    border-radius: 8px;
+    outline: none;
+    font-family: var(--font);
+    font-size: 16px;
+    transition: .3s;
+}
+
+form textarea{
+    height: 180px;
+    resize: none;
+}
+
+form input:focus,
+form textarea:focus{
+    border-color: var(--primary-color);
+}
+
+form button{
+    width: 220px;
+    height: 57px;
+    background-color: var(--primary-color);
+    color: var(--main-bg);
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-2);
+    font-size: 18px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: .3s;
+}
+
+form button:hover{
+    background-color: var(--main-bg);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+.dark-mode form input,
+.dark-mode form textarea{
+    background-color: var(--card-bg);
+    color: var(--white-color);
+    border-color: #444;
+}
+
+.dark-mode form input::placeholder,
+.dark-mode form textarea::placeholder{
+    color: var(--secondary-text);
+}
+/* end Contact Page */
+
+
+@media (max-width:992px){
+
+    .contact{
+        padding: 96px 32px;
+    }
+
+    .contact-parent{
+        flex-direction: column;
+        gap: 48px;
+    }
+
+    .info,
+    form{
+        width: 100%;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .contact{
+        padding: 80px 16px;
+    }
+
+    .contact h2{
+        font-size: 32px;
+    }
+
+    .contact > p{
+        margin-bottom: 48px;
+    }
+
+    .info{
+        text-align: center;
+    }
+
+    form button{
+        width: 100%;
+    }
+
+}
+/* end responsife Contact Page */
+#topBtn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--main-bg);
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    transition: .3s;
+}
+#topBtn:hover{
+    background-color: var(--main-bg);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+.dark-mode{
+    background-color: var(--main-bg);
+} 
+.dark-mode header img{
+    filter: brightness(0) invert(1);
+}
+#darkBtn{
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    color: var(--main-text);
+    cursor: pointer;
+    font-size: 18px;
+    transition: .3s;
+}
+
+#darkBtn:hover{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+body.dark-mode #counter{
+    color: var(--white-color);
+}
