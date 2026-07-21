@@ -1,7 +1,3 @@
-window.addEventListener("load", function () {
-    alert("أهلاً بك في موقعنا ❤️");
-});
-
 
 var topBtn = document.getElementById("topBtn");
 
